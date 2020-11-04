@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+//改变项目默认结构
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+dependencies{
+    compile "io.reactivex.rxjava2:rxjava:2.1.3"
+    compile "mysql:mysql-connector-java:6.0.6"
+}
+
+//改变编译目录
+//buildDir = 'out'
