@@ -1,11 +1,9 @@
 package com.yaya.generics;
 
-import java.util.List;
 import java.util.Locale;
 
 /**
- * 泛型方法
- * Created by Young on 2017/7/4.
+ * Generic Method
  */
 public class GenericsMethod {
 
@@ -32,12 +30,4 @@ public class GenericsMethod {
 
         return max;
     }
-
-    /*
-    类型通配符
-     */
-    public static void getData(List<?> data){
-        System.out.println("data:"+data.get(0));
-    }
-
 }

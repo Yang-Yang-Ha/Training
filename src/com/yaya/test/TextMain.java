@@ -1,11 +1,14 @@
 package com.yaya.test;
 
-import com.yaya.exception.JavaException;
+import com.yaya.generics.GenericsWildcard;
 
 public class TextMain {
 
     public static void main(String[] args) {
-        JavaException javaException = new JavaException();
-        javaException.multipleCatch();
+        GenericsWildcard genericsWildcard = new GenericsWildcard();
+        GenericsWildcard.Child child = new GenericsWildcard.Child();
+        genericsWildcard.upperBoundedWildcardMethod(child);
+        GenericsWildcard.Father father = new GenericsWildcard.Father();
+        genericsWildcard.upperBoundedWildcardMethod(father);
     }
 }
