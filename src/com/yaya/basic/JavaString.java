@@ -1,16 +1,6 @@
 package com.yaya.basic;
 
 public class JavaString {
-    /**
-     * Java provides three classes to represent a sequence of characters: String, StringBuffer, and StringBuilder.
-     * The String class is immutable whereas StringBuffer and StringBuilder classes are mutable. And the StringBuilder
-     * class is introduced since JDK 1.5
-     * <p>
-     * StringBuffer	StringBuilder
-     * 1)	StringBuffer is synchronized i.e. thread safe. It means two threads can't call the methods of StringBuffer simultaneously.
-     * StringBuilder is non-synchronized i.e. not thread safe. It means two threads can call the methods of StringBuilder simultaneously.
-     * 2)	StringBuffer is less efficient than StringBuilder.	StringBuilder is more efficient than StringBuffer.
-     */
 
     public void stringBufferMethod() {
         StringBuffer buffer = new StringBuffer("Hello");
