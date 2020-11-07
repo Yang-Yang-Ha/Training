@@ -1,11 +1,11 @@
 package com.yaya;
 
-import com.yaya.io.IoApplication;
+import com.yaya.basic.collection.list.JavaArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        IoApplication ioApplication = new IoApplication();
-        ioApplication.manualImplement("String.txt", "StringCopy.txt");
+        JavaArrayList javaArrayList = new JavaArrayList();
+        javaArrayList.iteratorRemove();
     }
 }
