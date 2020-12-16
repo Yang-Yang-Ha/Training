@@ -1,11 +1,11 @@
 package com.yaya;
 
-import com.yaya.basic.collection.list.JavaArrayList;
+import com.yaya.rxjava.JavaRx;
 
 public class Main {
 
     public static void main(String[] args) {
-        JavaArrayList javaArrayList = new JavaArrayList();
-        javaArrayList.iteratorRemove();
+        JavaRx javaRx = new JavaRx();
+        javaRx.flatMapTest();
     }
 }
