@@ -1,17 +1,42 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 
 sourceCompatibility = 1.8
 
 repositories {
     jcenter()
     mavenCentral()
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 }
 
-//改变项目默认结构
+buildscript {
+    ext.kotlin_version = '1.4.21'
+    repositories {
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = sourceCompatibility
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = sourceCompatibility
+    }
+}
+
 sourceSets {
     main {
         java {
-            srcDirs = ['src']
+            srcDirs = ['src/com/yaya/java']
+        }
+        kotlin {
+            srcDirs = ['src/com/yaya/kotlin']
         }
     }
 }
@@ -19,7 +44,8 @@ sourceSets {
 dependencies{
     compile "io.reactivex.rxjava2:rxjava:2.1.3"
     compile "mysql:mysql-connector-java:6.0.6"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
-//改变编译目录
+
 //buildDir = 'out'
