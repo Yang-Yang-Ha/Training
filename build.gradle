@@ -4,15 +4,14 @@ apply plugin: 'kotlin'
 sourceCompatibility = 1.8
 
 repositories {
-    jcenter()
+    google()
     mavenCentral()
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
 }
 
 buildscript {
-    ext.kotlin_version = '1.4.21'
+    ext.kotlin_version = '1.6.10'
     repositories {
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+        google()
         mavenCentral()
     }
     dependencies {
@@ -31,14 +30,8 @@ compileTestKotlin {
 }
 
 sourceSets {
-    main {
-        java {
-            srcDirs = ['src/com/yaya/java']
-        }
-        kotlin {
-            srcDirs = ['src/com/yaya/kotlin']
-        }
-    }
+    main.kotlin.srcDirs += 'src/com/yaya/kotlin'
+    main.java.srcDirs += 'src/com/yaya/java'
 }
 
 dependencies{
