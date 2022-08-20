@@ -1,5 +1,18 @@
 package generics
 
+fun main() {
+    val genericsRun = GenericsRun()
+    genericsRun.runOutClassTest(object : OutClassTest<NormalClassChild> {
+        override fun outClassTestMethod(): NormalClassChild {
+            val normalClassChild = NormalClassChild()
+            normalClassChild.normalClassMethod()
+            return normalClassChild
+        }
+    })
+    genericsRun.runGenericsTest()
+    genericsRun.runInClassTest()
+    genericsRun.runInClassTest2(InClassTest())
+}
 class GenericsRun {
 
     fun runGenericsTest() {
