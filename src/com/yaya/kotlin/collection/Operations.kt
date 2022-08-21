@@ -7,10 +7,6 @@ enum class Gender {
 }
 
 fun main() {
-    quizOne()
-}
-
-private fun quizOne() {
     val heroes = listOf(
         Hero("The Captain", 60, Gender.MALE),
         Hero("Frenchy", 42, Gender.MALE),
@@ -19,6 +15,11 @@ private fun quizOne() {
         Hero("First Mate", 29, Gender.MALE),
         Hero("Sir Stephen", 37, Gender.MALE)
     )
+    quizOne(heroes)
+    quizTwo(heroes)
+}
+
+private fun quizOne(heroes: List<Hero>) {
 
     //distinct
     val distinctSize = heroes.map { it.age }.distinct().size
@@ -47,4 +48,28 @@ private fun quizOne() {
                 "areAllHeroesLessThan50 = $areAllHeroesLessThan50, " +
                 "isAnyHeroAWoman = $isAnyHeroAWoman"
     )
+}
+
+fun quizTwo(heroes: List<Hero>) {
+    //groupBy
+    val mapByAge: Map<Int, List<Hero>> = heroes.groupBy { it.age }
+    val (age, group) = mapByAge.maxBy { (_, group) -> group.size }
+    println("Most people are in age$age")
+
+    //associateBy
+    val mapByName: Map<String, Hero> = heroes.associateBy { it.name }
+    val frenchyAgeByGetValue = mapByName.getValue("Frenchy").age
+    val frenchyAgeByProperty = mapByName["Frenchy"]?.age
+    println("Frenchy's age is $frenchyAgeByProperty")
+
+    //getOrElse
+    val unknownHero = Hero("unknown", 0, null)
+    mapByName.getOrElse("unknown") { unknownHero }.name
+
+    //flatMap
+    val (first, second) = heroes
+        .flatMap {
+            heroes.map { hero -> it to hero }
+        }
+        .maxBy { it.first.age - it.second.age }
 }
