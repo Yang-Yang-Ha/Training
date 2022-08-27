@@ -17,6 +17,15 @@ fun main() {
     )
     quizOne(heroes)
     quizTwo(heroes)
+    foldAndReduce()
+}
+
+private fun foldAndReduce() {
+    val numbers = listOf(5, 2, 10, 4)
+    val sum = numbers.reduce { sum, element -> sum + element * 2 }
+    println("reduce sum = $sum")
+    val sumDoubled = numbers.fold(0) { sumDoubled, element -> sumDoubled + element * 2 }
+    println("fold sum = $sumDoubled")
 }
 
 private fun quizOne(heroes: List<Hero>) {
